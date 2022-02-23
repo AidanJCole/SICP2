@@ -1,9 +1,11 @@
 #lang sicp
 
 (define (fib n)
-  (cond ((= n 0) 0)
-        ((= n 1) 1)
-        (else (+ (fib (- n 1)) (fib (- n 2))))))
+  (define (fib-iter a b counter)
+    (if (= 0 counter)
+        b
+        (fib-iter (+ a b) a (- counter 1))))
+  (fib-iter 1 0 n))
 
 (fib 0)
 (fib 1)
